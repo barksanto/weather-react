@@ -14,6 +14,10 @@ function App() {
             className="search-bar"
             placeholder="Search..." />
         </div>
+        <div className="location-box">
+          <div className="location">Boston, MA</div>
+          <div className="date"></div>
+        </div>
       </main>
     </div>
   );
