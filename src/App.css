@@ -52,3 +52,11 @@ main{
 .search-box .search-bar:focus{
   background-color: rgba(255,255,255, 0.75);
 }
+
+.date{
+  color: white;
+}
+
+.location {
+  color: white;
+}
