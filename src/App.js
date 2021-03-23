@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 const API = {
@@ -11,10 +11,14 @@ function App() {
   const [weather, setWeather] = useState({});
 
   const search = event => {
-    if(event.key === "Enter"){
+    if (event.key === "Enter") {
       fetch(`${API.base}weather?q=${query}&units=metric&APPID=${API.key}`)
-        .then(result => result.json)
-        .then(res => setWeather(res));
+        .then(result => result.json())
+        .then(res => {
+          setQuery('');
+          setWeather(res);
+          console.log(res);
+        });
     }
   }
 
@@ -39,16 +43,23 @@ function App() {
           <input
             type="text"
             className="search-bar"
-            placeholder="Search..." />
+            placeholder="Search..."
+            onChange={e => setQuery(e.target.value)}
+            value={query}
+            onKeyPress={search} />
         </div>
-        <div className="location-box">
-          <div className="location">Boston, MA</div>
-          <div className="date">{dateBuilder(new Date())}</div>
-        </div>
-        <div className="weather-box">
-          <div className="temp">15°</div>
-          <div className="weather">Sunny</div>
-        </div>
+        {(typeof weather.main != "undefined") ? (
+          <div>
+            <div className="location-box">
+              <div className="location">{weather.name}, {weather.sys.country}</div>
+              <div className="date">{dateBuilder(new Date())}</div>
+            </div>
+            <div className="weather-box">
+              <div className="temp">15°</div>
+              <div className="weather">Sunny</div>
+            </div>
+          </div>
+        ) : ''}
       </main>
     </div>
   );
