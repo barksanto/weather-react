@@ -11,3 +11,63 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+.app .warm{
+  background-image: url('./assets/warm-bg.jpg');
+}
+
+main{
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.75));
+  padding: 25px;
+}
+
+
+.search-box{
+  width: 100%;
+  margin: 0 0 75px;
+}
+
+.search-box .search-bar{
+  width: 100%;
+  padding: 15px;
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 0 0 16px 16px;
+  margin-top: -25px;
+
+  box-shadow: 0 5px rgba(0,0,0,0.2);
+
+  color: #313131;
+  font-size: 20px;
+  transition: 0.4 ease;
+}
+
+.search-box .search-bar:focus{
+  background-color: rgba(255,255,255, 0.75);
+}
+
+.date{
+  color: white;
+}
+
+.location-box .location {
+  color: white;
+  font-size: 32px;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
+.temp{
+  color: white;
+}
+
+.weather{
+  color: white;
+}
