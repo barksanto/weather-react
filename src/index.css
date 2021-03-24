@@ -14,7 +14,7 @@ code {
 
 
 
-.app .warm{
+.app.warm{
   background-image: url('./assets/warm-bg.jpg');
 }
 
