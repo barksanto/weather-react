@@ -12,7 +12,7 @@ function App() {
 
   const search = event => {
     if (event.key === "Enter") {
-      fetch(`${API.base}weather?q=${query}&units=metric&APPID=${API.key}`)
+      fetch(`${API.base}weather?q=${query}&units=imperial&APPID=${API.key}`)
         .then(result => result.json())
         .then(res => {
           setQuery('');
