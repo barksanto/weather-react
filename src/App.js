@@ -12,7 +12,8 @@ function App() {
   const [weather, setWeather] = useState({});
 
   const search = event => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" || event.type === 'click') {
+      console.log(event)
       fetch(`${API.base}weather?q=${query}&units=imperial&APPID=${API.key}`)
         .then(result => result.json())
         .then(res => {
@@ -22,6 +23,10 @@ function App() {
         });
     }
   }
+
+  // const testSearch = (event) => {
+  //   console.log(event);
+  // }
 
 
   const dateBuilder = (d) => {
@@ -48,8 +53,11 @@ function App() {
             onChange={e => setQuery(e.target.value)}
             value={query}
             onKeyPress={search}
-            className="col-11" />
-          <button type="button" class="btn btn-secondary col-1 search-button">
+            className="col-10" />
+          <button
+            type="button"
+            class="btn btn-secondary col-2 search-button"
+            onClick={search}>
             <img src="https://img.icons8.com/emoji/32/000000/magnifying-glass-tilted-right-emoji.png" />
           </button>
         </div>
