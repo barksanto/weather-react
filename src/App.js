@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+require('dotenv').config()
 
 const API = {
   key: '364545f834bbb6e7f867173e9f886040',
