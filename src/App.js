@@ -48,9 +48,9 @@ function App() {
             onChange={e => setQuery(e.target.value)}
             value={query}
             onKeyPress={search}
-            className="col-10" />
-          <button type="button" class="btn btn-secondary col-2 search-button">
-            <img src="https://img.icons8.com/emoji/48/000000/magnifying-glass-tilted-right-emoji.png" />
+            className="col-11" />
+          <button type="button" class="btn btn-secondary col-1 search-button">
+            <img src="https://img.icons8.com/emoji/32/000000/magnifying-glass-tilted-right-emoji.png" />
           </button>
         </div>
 
