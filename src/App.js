@@ -7,6 +7,8 @@ const API = {
   base: 'https://api.openweathermap.org/data/2.5/'
 }
 
+const API_KEY = (process.env.REACT_APP_API_KEY)
+
 function App() {
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
@@ -14,7 +16,7 @@ function App() {
   const search = event => {
     if (event.key === "Enter" || event.type === 'click') {
       console.log(event)
-      fetch(`${API.base}weather?q=${query}&units=imperial&APPID=${API.key}`)
+      fetch(`${API.base}weather?q=${query}&units=imperial&APPID=${API_KEY}`)
         .then(result => result.json())
         .then(res => {
           setQuery('');
@@ -58,7 +60,7 @@ function App() {
             type="button"
             class="btn btn-secondary col-2 search-button"
             onClick={search}>
-            <img src="https://img.icons8.com/emoji/32/000000/magnifying-glass-tilted-right-emoji.png" />
+            <img alt="magnifying glass" src="https://img.icons8.com/emoji/32/000000/magnifying-glass-tilted-right-emoji.png" />
           </button>
         </div>
 
