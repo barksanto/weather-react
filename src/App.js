@@ -3,11 +3,11 @@ import './App.css';
 require('dotenv').config()
 
 const API = {
-  key: '364545f834bbb6e7f867173e9f886040',
+  key: 'b7f7ba740725cadece7fa95b9c604600',
   base: 'https://api.openweathermap.org/data/2.5/'
 }
 
-const API_KEY = (process.env.REACT_APP_API_KEY)
+// const API_KEY = process.env.REACT_APP_API_KEY
 
 function App() {
   const [query, setQuery] = useState('');
@@ -15,13 +15,13 @@ function App() {
 
   const search = event => {
     if (event.key === "Enter" || event.type === 'click') {
-      console.log(event)
-      fetch(`${API.base}weather?q=${query}&units=imperial&APPID=${API_KEY}`)
+      // console.log(event)
+      fetch(`${API.base}weather?q=${query}&units=imperial&APPID=${API.key}`)
         .then(result => result.json())
         .then(res => {
           setQuery('');
-          setWeather(res);
           console.log(res);
+          setWeather(res);
         });
     }
   }
@@ -50,15 +50,15 @@ function App() {
         <div className="search-box row">
           <input
             type="text"
-            className="search-bar"
+            className="search-bar col-10"
             placeholder="Search..."
             onChange={e => setQuery(e.target.value)}
             value={query}
             onKeyPress={search}
-            className="col-10" />
+          />
           <button
             type="button"
-            class="btn btn-secondary col-2 search-button"
+            className="btn btn-secondary col-2 search-button"
             onClick={search}>
             <img alt="magnifying glass" src="https://img.icons8.com/emoji/32/000000/magnifying-glass-tilted-right-emoji.png" />
           </button>
